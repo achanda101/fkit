@@ -38,8 +38,8 @@
 
     
         
-            <div class="description"><p>This module defines the core functions which make up the building blocks of
-FKit.</p></div>
+            <div class="description"><p>This module defines the utility functions which can be easily combined and
+composed.</p></div>
         
 
         
@@ -72,7 +72,7 @@ FKit.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line55">line 55</a>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -101,6 +101,66 @@ FKit.</p></div>
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<dt>
+    <h4 class="name" id="range"><span class="type-signature">(static) </span>range<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Creates a new array of numbers from <code>a</code> to <code>b</code>.</p>
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line234">line 234</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        </dl>
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -108,7 +168,7 @@ FKit.</p></div>
         <dl>
             
 <dt>
-    <h4 class="name" id="apply"><span class="type-signature">(static) </span>apply<span class="signature">(f, a)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="add"><span class="type-signature">(static) </span>add<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
 
     
 </dt>
@@ -116,177 +176,7 @@ FKit.</p></div>
 
     
     <div class="description">
-        <p>Applies the function <code>f</code> to the value <code>a</code>.</p>
-<p>This function is curried by default.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line86">line 86</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The result.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">*</span>
-
-
-    </dd>
-</dl>
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>apply(f, a) == f(a)</code></pre>
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="applyRight"><span class="type-signature">(static) </span>applyRight<span class="signature">(a, f)</span><span class="type-signature"> &rarr; {*}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Applies the function <code>f</code> to the value <code>a</code>.</p>
+        <p>The addition operator.</p>
 <p>This function is curried by default.</p>
     </div>
     
@@ -327,7 +217,7 @@ FKit.</p></div>
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">number</span>
 
 
             
@@ -344,13 +234,13 @@ FKit.</p></div>
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>b</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">number</span>
 
 
             
@@ -391,7 +281,7 @@ FKit.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line100">line 100</a>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -429,7 +319,7 @@ FKit.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">number</span>
 
 
     </dd>
@@ -438,17 +328,12 @@ FKit.</p></div>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>applyRight(a, f) == f(a)</code></pre>
-
-    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="binary"><span class="type-signature">(static) </span>binary<span class="signature">(f)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id="and"><span class="type-signature">(static) </span>and<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 </dt>
@@ -456,8 +341,8 @@ FKit.</p></div>
 
     
     <div class="description">
-        <p>Creates a new function that wraps the function <code>f</code> to accept only two
-arguments.</p>
+        <p>The logical AND operator.</p>
+<p>This function is curried by default.</p>
     </div>
     
 
@@ -491,13 +376,13 @@ arguments.</p>
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>a</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -507,591 +392,20 @@ arguments.</p>
 
             
 
-            <td class="description last"><p>The function to be wrapped.</p></td>
+            <td class="description last"></td>
         </tr>
 
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line181">line 181</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>A new function.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
-
-
-    </dd>
-</dl>
-
-        
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="compose"><span class="type-signature">(static) </span>compose<span class="signature">(&hellip;fs)</span><span class="type-signature"> &rarr; {function}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Creates a new function that composes the functions.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
             
-                <td class="name"><code>fs</code></td>
+                <td class="name"><code>b</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                    &lt;repeatable><br>
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>A list of functions.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line111">line 111</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>A new function.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
-
-
-    </dd>
-</dl>
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>compose(f, g, h)(a) == f(g(h(a)))</code></pre>
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="const"><span class="type-signature">(static) </span>const<span class="signature">(c)</span><span class="type-signature"> &rarr; {function}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Creates a function that always returns the value <code>c</code>, regardless of the
-given arguments.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>c</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">*</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The constant value.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line137">line 137</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>A new function.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
-
-
-    </dd>
-</dl>
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>const(c)(1, 2, 3, ...) == c</code></pre>
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="curry"><span class="type-signature">(static) </span>curry<span class="signature">(f)</span><span class="type-signature"> &rarr; {function}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Creates a new function that allows partial application of the arguments to
-the function <code>f</code>.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The function to be curried.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line155">line 155</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>A new function.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">function</span>
-
-
-    </dd>
-</dl>
-
-        
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>var add = curry(function(a, b) { return a + b; });
-add(1)(2) == 3</code></pre>
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="flip"><span class="type-signature">(static) </span>flip<span class="signature">(f)</span><span class="type-signature"> &rarr; {function}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Wraps the binary function <code>f</code> and flips the order of the arguments.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
+<span class="param-type">boolean</span>
 
 
             
@@ -1132,7 +446,7 @@ add(1)(2) == 3</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line127">line 127</a>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line115">line 115</a>
     </li></ul></dd>
     
 
@@ -1159,7 +473,7 @@ add(1)(2) == 3</code></pre>
     
             
 <div class="param-desc">
-    <p>A new function.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -1170,7 +484,7 @@ add(1)(2) == 3</code></pre>
     </dt>
     <dd>
         
-<span class="param-type">function</span>
+<span class="param-type">boolean</span>
 
 
     </dd>
@@ -1184,7 +498,7 @@ add(1)(2) == 3</code></pre>
         
             
 <dt>
-    <h4 class="name" id="identity"><span class="type-signature">(static) </span>identity<span class="signature">(a)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="dec"><span class="type-signature">(static) </span>dec<span class="signature">(a)</span><span class="type-signature"> &rarr; {number}</span></h4>
 
     
 </dt>
@@ -1192,7 +506,314 @@ add(1)(2) == 3</code></pre>
 
     
     <div class="description">
-        <p>Creates a new function that returns its first argument.</p>
+        <p>Decrements the number.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line225">line 225</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="div"><span class="type-signature">(static) </span>div<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The division operator.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line63">line 63</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="eql"><span class="type-signature">(static) </span>eql<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The equality operator.</p>
+<p>This function is curried by default.</p>
     </div>
     
 
@@ -1242,7 +863,30 @@ add(1)(2) == 3</code></pre>
 
             
 
-            <td class="description last"><p>A value.</p></td>
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
         </tr>
 
     
@@ -1273,7 +917,7 @@ add(1)(2) == 3</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line70">line 70</a>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line157">line 157</a>
     </li></ul></dd>
     
 
@@ -1300,7 +944,7 @@ add(1)(2) == 3</code></pre>
     
             
 <div class="param-desc">
-    <p>A value.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -1311,7 +955,7 @@ add(1)(2) == 3</code></pre>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">boolean</span>
 
 
     </dd>
@@ -1320,17 +964,12 @@ add(1)(2) == 3</code></pre>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>identity(a) == a</code></pre>
-
-    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="tap"><span class="type-signature">(static) </span>tap<span class="signature">(f, a)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="gt"><span class="type-signature">(static) </span>gt<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 </dt>
@@ -1338,8 +977,8 @@ add(1)(2) == 3</code></pre>
 
     
     <div class="description">
-        <p>Applies the side-effecting function <code>f</code> to the value <code>a</code> and returns the
-value <code>a</code>.</p>
+        <p>The greater than operator.</p>
+<p>This function is curried by default.</p>
     </div>
     
 
@@ -1369,29 +1008,6 @@ value <code>a</code>.</p>
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>f</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The function to be applied.</p></td>
-        </tr>
-
     
 
         <tr>
@@ -1402,7 +1018,7 @@ value <code>a</code>.</p>
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type">number</span>
 
 
             
@@ -1412,7 +1028,30 @@ value <code>a</code>.</p>
 
             
 
-            <td class="description last"><p>A value.</p></td>
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
         </tr>
 
     
@@ -1443,7 +1082,7 @@ value <code>a</code>.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line216">line 216</a>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -1470,7 +1109,7 @@ value <code>a</code>.</p>
     
             
 <div class="param-desc">
-    <p>The value <code>a</code>.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -1481,7 +1120,7 @@ value <code>a</code>.</p>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">boolean</span>
 
 
     </dd>
@@ -1490,17 +1129,12 @@ value <code>a</code>.</p>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>tap(f)(a) == a</code></pre>
-
-    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="unary"><span class="type-signature">(static) </span>unary<span class="signature">(f)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id="gte"><span class="type-signature">(static) </span>gte<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 </dt>
@@ -1508,8 +1142,8 @@ value <code>a</code>.</p>
 
     
     <div class="description">
-        <p>Creates a new function that wraps the function <code>f</code> to accept only one
-argument.</p>
+        <p>The greater than or equal operator.</p>
+<p>This function is curried by default.</p>
     </div>
     
 
@@ -1543,13 +1177,13 @@ argument.</p>
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>a</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">number</span>
 
 
             
@@ -1559,7 +1193,30 @@ argument.</p>
 
             
 
-            <td class="description last"><p>The function to be wrapped.</p></td>
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
         </tr>
 
     
@@ -1590,7 +1247,7 @@ argument.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line164">line 164</a>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line183">line 183</a>
     </li></ul></dd>
     
 
@@ -1617,7 +1274,7 @@ argument.</p>
     
             
 <div class="param-desc">
-    <p>A new function.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -1628,7 +1285,7 @@ argument.</p>
     </dt>
     <dd>
         
-<span class="param-type">function</span>
+<span class="param-type">boolean</span>
 
 
     </dd>
@@ -1642,7 +1299,7 @@ argument.</p>
         
             
 <dt>
-    <h4 class="name" id="variadic"><span class="type-signature">(static) </span>variadic<span class="signature">(f)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id="inc"><span class="type-signature">(static) </span>inc<span class="signature">(a)</span><span class="type-signature"> &rarr; {number}</span></h4>
 
     
 </dt>
@@ -1650,8 +1307,7 @@ argument.</p>
 
     
     <div class="description">
-        <p>Creates a new function that wraps the function <code>f</code> to accept any number of
-agruments. The last named parameter will be given an array of arguments.</p>
+        <p>Increments the number.</p>
     </div>
     
 
@@ -1685,13 +1341,13 @@ agruments. The last named parameter will be given an array of arguments.</p>
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>a</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">number</span>
 
 
             
@@ -1701,7 +1357,7 @@ agruments. The last named parameter will be given an array of arguments.</p>
 
             
 
-            <td class="description last"><p>The function to be wrapped.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -1732,7 +1388,7 @@ agruments. The last named parameter will be given an array of arguments.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line203">line 203</a>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line217">line 217</a>
     </li></ul></dd>
     
 
@@ -1759,7 +1415,7 @@ agruments. The last named parameter will be given an array of arguments.</p>
     
             
 <div class="param-desc">
-    <p>A new function.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -1770,7 +1426,7 @@ agruments. The last named parameter will be given an array of arguments.</p>
     </dt>
     <dd>
         
-<span class="param-type">function</span>
+<span class="param-type">number</span>
 
 
     </dd>
@@ -1779,10 +1435,1606 @@ agruments. The last named parameter will be given an array of arguments.</p>
         
 
     
-        <h5>Example</h5>
+</dd>
+
         
-    <pre class="prettyprint"><code>function foo(head, tail) { ... }
-variadic(foo)(1, 2, 3) == foo(1, [2, 3])</code></pre>
+            
+<dt>
+    <h4 class="name" id="lt"><span class="type-signature">(static) </span>lt<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The less than operator.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line196">line 196</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="lte"><span class="type-signature">(static) </span>lte<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The less than or equal operator.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line209">line 209</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="max"><span class="type-signature">(static) </span>max<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns the largest of the given values <code>a</code> and <code>b</code>.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line89">line 89</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The maximum value.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="min"><span class="type-signature">(static) </span>min<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns the smallest of the given values <code>a</code> and <code>b</code>.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line102">line 102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The minimum value.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="mod"><span class="type-signature">(static) </span>mod<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The modulo operator.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="mul"><span class="type-signature">(static) </span>mul<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The multiplication operator.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line50">line 50</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="negate"><span class="type-signature">(static) </span>negate<span class="signature">(a)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The unary negation operator.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line144">line 144</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="not"><span class="type-signature">(static) </span>not<span class="signature">(a)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The logical NOT operator.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line136">line 136</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="or"><span class="type-signature">(static) </span>or<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The logical OR operator.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line128">line 128</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="sub"><span class="type-signature">(static) </span>sub<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {number}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>The subtraction operator.</p>
+<p>This function is curried by default.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fn.js.html">fn.js</a>, <a href="fn.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+
+
+    </dd>
+</dl>
+
+        
 
     
 </dd>
@@ -1803,13 +3055,13 @@ variadic(foo)(1, 2, 3) == foo(1, [2, 3])</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-util.html">util</a></li></ul><h3>Classes</h3><ul><li><a href="Bus.html">Bus</a></li><li><a href="Stream.html">Stream</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-stream_.html">stream</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-core.html">core</a></li><li><a href="module-fn.html">fn</a></li><li><a href="module-obj.html">obj</a></li></ul><h3>Classes</h3><ul><li><a href="Bus.html">Bus</a></li><li><a href="Stream.html">Stream</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-stream_.html">stream</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Tue Sep 02 2014 12:44:12 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Thu Sep 04 2014 17:08:54 GMT+1000 (EST)
 </footer>
 
 <script> prettyPrint(); </script>

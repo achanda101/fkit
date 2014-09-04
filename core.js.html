@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: core.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: core.js</h1>
+
+    
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+var __slice = Array.prototype.slice;
+
+function curry(f) {
+  var arity = f.length;
+
+  return given([]);
+
+  function given(args) {
+    return function() {
+      var newArgs = args.concat(__slice.call(arguments, 0));
+
+      if (newArgs.length >= arity) {
+        return f.apply(this, newArgs);
+      } else {
+        return given(newArgs);
+      }
+    };
+  }
+}
+
+function variadic(f) {
+  var arity = f.length;
+
+  if (arity &lt; 1) {
+    return f;
+  } else if (arity === 1)  {
+    return function() {
+      return f.call(this, __slice.call(arguments, 0));
+    };
+  } else {
+    return function() {
+      var numMissingArgs = Math.max(arity - arguments.length - 1, 0),
+          missingArgs    = new Array(numMissingArgs),
+          namedArgs      = __slice.call(arguments, 0, arity - 1),
+          variadicArgs   = __slice.call(arguments, f.length - 1);
+
+      return f.apply(this, namedArgs.concat(missingArgs).concat([variadicArgs]));
+    };
+  }
+}
+
+function apply(f, a) {
+  /* jshint validthis: true */
+  return f.call(this, a);
+}
+
+function flip(f) {
+  return function(a, b) {
+    return f(b, a);
+  };
+}
+
+/**
+ * This module defines the core functions which make up the building blocks of
+ * FKit.
+ *
+ * @module core
+ * @author Josh Bassett
+ */
+module.exports = {
+  /**
+   * Creates a new function that returns its first argument.
+   *
+   * @param {*} a A value.
+   * @returns {*} A value.
+   * @example identity(a) == a
+   */
+  identity: function(a) {
+    return a;
+  },
+
+  /**
+   * Applies the function `f` to the value `a`.
+   *
+   * This function is curried by default.
+   *
+   * @static
+   * @function
+   * @param {function} f
+   * @param {*} a
+   * @returns {*} The result.
+   * @example apply(f, a) == f(a)
+   */
+  apply: curry(apply),
+
+  /**
+   * Applies the function `f` to the value `a`.
+   *
+   * This function is curried by default.
+   *
+   * @static
+   * @function
+   * @param {*} a
+   * @param {function} f
+   * @returns {*} The result.
+   * @example applyRight(a, f) == f(a)
+   */
+  applyRight: curry(flip(apply)),
+
+  /**
+   * Creates a new function that composes the functions.
+   *
+   * @static
+   * @function
+   * @param {...function} fs A list of functions.
+   * @returns {function} A new function.
+   * @example compose(f, g, h)(a) == f(g(h(a)))
+   */
+  compose: variadic(function(fs) {
+    return function(a) {
+      return fs.reduceRight(function(a, f) {
+        return apply(f, a);
+      }, a);
+    };
+  }),
+
+  /**
+   * Wraps the binary function `f` and flips the order of the arguments.
+   *
+   * @static
+   * @function
+   * @param {function} f
+   * @returns {function} A new function.
+   */
+  flip: flip,
+
+  /**
+   * Creates a function that always returns the value `c`, regardless of the
+   * given arguments.
+   *
+   * @param {*} c The constant value.
+   * @returns {function} A new function.
+   * @example const(c)(1, 2, 3, ...) == c
+   */
+  const: function(c) {
+    return function() {
+      return c;
+    };
+  },
+
+  /**
+   * Creates a new function that allows partial application of the arguments to
+   * the function `f`.
+   *
+   * @static
+   * @function
+   * @param {function} f The function to be curried.
+   * @returns {function} A new function.
+   * @example
+   *   var add = curry(function(a, b) { return a + b; });
+   *   add(1)(2) == 3
+   */
+  curry: curry,
+
+  /**
+   * Creates a new function that wraps the function `f` to accept only one
+   * argument.
+   *
+   * @param {function} f The function to be wrapped.
+   * @returns {function} A new function.
+   */
+  unary: function(f) {
+    if (f.length === 1) {
+      return f;
+    } else {
+      return function(a) {
+        return f.call(this, a);
+      };
+    }
+  },
+
+  /**
+   * Creates a new function that wraps the function `f` to accept only two
+   * arguments.
+   *
+   * @param {function} f The function to be wrapped.
+   * @returns {function} A new function.
+   */
+  binary: function(f) {
+    if (f.length === 2) {
+      return f;
+    } else {
+      return function(a, b) {
+        return f.call(this, a, b);
+      };
+    }
+  },
+
+  /**
+   * Creates a new function that wraps the function `f` to accept any number of
+   * agruments. The last named parameter will be given an array of arguments.
+   *
+   * @static
+   * @function
+   * @param {function} f The function to be wrapped.
+   * @returns {function} A new function.
+   * @example
+   *   function foo(head, tail) { ... }
+   *   variadic(foo)(1, 2, 3) == foo(1, [2, 3])
+   */
+  variadic: variadic,
+
+  /**
+   * Applies the side-effecting function `f` to the value `a` and returns the
+   * value `a`.
+   *
+   * @static
+   * @function
+   * @param {function} f The function to be applied.
+   * @param {*} a A value.
+   * @returns {*} The value `a`.
+   * @example tap(f)(a) == a
+   */
+  tap: curry(function(f, a) {
+    f.call(this, a);
+    return a;
+  })
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-core.html">core</a></li><li><a href="module-fn.html">fn</a></li><li><a href="module-obj.html">obj</a></li></ul><h3>Classes</h3><ul><li><a href="Bus.html">Bus</a></li><li><a href="Stream.html">Stream</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-stream_.html">stream</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Thu Sep 04 2014 17:08:54 GMT+1000 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
