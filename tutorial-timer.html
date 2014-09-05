@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: bus.js</title>
+    <title>JSDoc: Tutorial: timer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,50 +17,43 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: bus.js</h1>
+    <h1 class="page-title">Tutorial: timer</h1>
 
-    
-
-
-    
     <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>'use strict';
 
-var Stream = require('./stream');
+<header>
+    
 
-/**
- * Creates a new bus.
- *
- * @class
- * @augments Stream
- * @author Josh Bassett
- */
-function Bus() {
-  var env = this;
+    <h2>timer</h2>
+</header>
 
-  Stream.call(this, function(next, done) {
-    /**
-     * Pushes a value `a` onto the stream.
-     *
-     * @function Bus#push
-     * @param {*} a A value.
-     */
-    env.push = next;
-  });
-}
+<article>
+    <!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8">
+    <title>Stream Example</title>
+    <script src="../build/fkit.js"></script>
+  </head>
+  <body>
+    <script>
+      function timer(next) {
+        setInterval(fkit.compose(next, Math.random), 100);
+      }
 
-Bus.prototype = new Stream();
+      var sum = fkit.fn.fold(fkit.fn.add, 0),
+          s   = new fkit.Stream(timer).map(fkit.fn.mul(+1)),
+          t   = new fkit.Stream(timer).map(fkit.fn.mul(-1)),
+          u   = s.zip(t).map(sum);
 
-Bus.prototype.constructor = Bus;
+      u.subscribe(console.log.bind(console));
+    </script>
+  </body>
+</html>
 
-module.exports = Bus;
-</code></pre>
-        </article>
-    </section>
+</article>
 
-
-
+</section>
 
 </div>
 
