@@ -29,6 +29,14 @@
 
 var core = require('./core');
 
+function append(a, b) {
+  return a.concat(b);
+}
+
+function fold(f, s, as) {
+  return as.reduce(f, s);
+}
+
 /**
  * This module defines the utility functions which can be easily combined and
  * composed.
@@ -40,9 +48,8 @@ module.exports = {
   /**
    * The addition operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -53,9 +60,8 @@ module.exports = {
   /**
    * The subtraction operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -66,9 +72,8 @@ module.exports = {
   /**
    * The multiplication operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -79,9 +84,8 @@ module.exports = {
   /**
    * The division operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -92,9 +96,8 @@ module.exports = {
   /**
    * The modulo operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -105,35 +108,32 @@ module.exports = {
   /**
    * Returns the largest of the given values `a` and `b`.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
-   * @returns {number} The maximum value.
+   * @returns {number} The result.
    */
   max: core.curry(function(a, b) { return Math.max(a,  b); }),
 
   /**
    * Returns the smallest of the given values `a` and `b`.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
-   * @returns {number} The minimum value.
+   * @returns {number} The result.
    */
   min: core.curry(function(a, b) { return Math.min(a,  b); }),
 
   /**
    * The logical AND operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {boolean} a
    * @param {boolean} b
@@ -144,9 +144,8 @@ module.exports = {
   /**
    * The logical OR operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {boolean} a
    * @param {boolean} b
@@ -173,9 +172,8 @@ module.exports = {
   /**
    * The equality operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {*} a
    * @param {*} b
@@ -186,9 +184,8 @@ module.exports = {
   /**
    * The greater than operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -199,9 +196,8 @@ module.exports = {
   /**
    * The greater than or equal operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -212,9 +208,8 @@ module.exports = {
   /**
    * The less than operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -225,9 +220,8 @@ module.exports = {
   /**
    * The less than or equal operator.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -254,9 +248,8 @@ module.exports = {
   /**
    * Creates a new array of numbers from `a` to `b`.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {number} a
    * @param {number} b
@@ -274,9 +267,8 @@ module.exports = {
   /**
    * Maps the list of `as` with the function `f`.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {function} f
    * @param {Array} as
@@ -289,9 +281,8 @@ module.exports = {
   /**
    * Filters the list of `as` with the predicate function `f`.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {function} f
    * @param {Array} as
@@ -304,25 +295,21 @@ module.exports = {
   /**
    * Folds the list of `as` with the function `f` and and starting value `s`.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {function} f
    * @param {*} s
    * @param {Array} as
    * @returns {*} The result.
    */
-  fold: core.curry(function(f, s, as) {
-    return as.reduce(f, s);
-  }),
+  fold: core.curry(fold),
 
   /**
    * Scans the list of `as` with the function `f` and and starting value `s`.
    *
-   * This function is curried by default.
-   *
    * @static
+   * @curried
    * @function
    * @param {function} f
    * @param {*} s
@@ -331,10 +318,36 @@ module.exports = {
    */
   scan: core.curry(function(f, s, as) {
     var bs = [s];
-    as.reduce(function(r, a) {
+
+    fold(function(r, a) {
       return core.tap(bs.push.bind(bs), f(r, a));
-    }, s);
+    }, s, as);
+
     return bs;
+  }),
+
+  /**
+   * Appends the objects `a` and `b`.
+   *
+   * @static
+   * @curried
+   * @function
+   * @param {*} a
+   * @param {*} b
+   * @returns {*} The result.
+   */
+  append: core.curry(append),
+
+  /**
+   * Concatenates the list of `as`.
+   *
+   * @static
+   * @function
+   * @param {...*} as
+   * @returns {*} The result.
+   */
+  concat: core.variadic(function(a, as) {
+    return fold(append, a, as);
   })
 };
 </code></pre>
@@ -353,7 +366,7 @@ module.exports = {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Fri Sep 05 2014 22:15:50 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Mon Sep 08 2014 21:21:57 GMT+1000 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
