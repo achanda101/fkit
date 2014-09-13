@@ -29,12 +29,23 @@
 
 var core = require('./core');
 
+var __slice = Array.prototype.slice;
+
 function append(a, b) {
   return a.concat(b);
 }
 
+function concat(as) {
+  var s = (typeof as[0] === 'string') ? '' : [];
+  return fold(append, s, as);
+}
+
 function fold(f, s, as) {
   return as.reduce(f, s);
+}
+
+function foldRight(f, s, as) {
+  return as.reduceRight(f, s);
 }
 
 /**
@@ -106,18 +117,6 @@ module.exports = {
   mod: core.curry(function(a, b) { return b % a; }),
 
   /**
-   * Returns the largest of the given values `a` and `b`.
-   *
-   * @static
-   * @curried
-   * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
-   */
-  max: core.curry(function(a, b) { return Math.max(a, b); }),
-
-  /**
    * Returns the smallest of the given values `a` and `b`.
    *
    * @static
@@ -128,6 +127,18 @@ module.exports = {
    * @returns {number} The result.
    */
   min: core.curry(function(a, b) { return Math.min(a, b); }),
+
+  /**
+   * Returns the largest of the given values `a` and `b`.
+   *
+   * @static
+   * @curried
+   * @function
+   * @param {number} a
+   * @param {number} b
+   * @returns {number} The result.
+   */
+  max: core.curry(function(a, b) { return Math.max(a, b); }),
 
   /**
    * The logical AND operator.
@@ -293,7 +304,8 @@ module.exports = {
   }),
 
   /**
-   * Folds the list of `as` with the function `f` and and starting value `s`.
+   * Folds the list of `as` with the binary function `f` and starting value
+   * `s`, from left to right.
    *
    * @static
    * @curried
@@ -306,7 +318,22 @@ module.exports = {
   fold: core.curry(fold),
 
   /**
-   * Scans the list of `as` with the function `f` and and starting value `s`.
+   * Folds the list of `as` with the binary function `f` and starting value
+   * `s`, from right to left.
+   *
+   * @static
+   * @curried
+   * @function
+   * @param {function} f
+   * @param {*} s
+   * @param {Array} as
+   * @returns {*} The result.
+   */
+  foldRight: core.curry(foldRight),
+
+  /**
+   * Scans the list of `as` with the binary function `f` and starting value
+   * `s`, from left to right.
    *
    * @static
    * @curried
@@ -317,13 +344,35 @@ module.exports = {
    * @returns {*} The result.
    */
   scan: core.curry(function(f, s, as) {
-    var bs = [s];
+    var r = [s];
 
-    fold(function(r, a) {
-      return core.tap(bs.push.bind(bs), f(r, a));
+    fold(function(b, a) {
+      return core.tap(r.push.bind(r), f(b, a));
     }, s, as);
 
-    return bs;
+    return r;
+  }),
+
+  /**
+   * Scans the list of `as` with the binary function `f` and starting value
+   * `s`, from right to left.
+   *
+   * @static
+   * @curried
+   * @function
+   * @param {function} f
+   * @param {*} s
+   * @param {Array} as
+   * @returns {*} The result.
+   */
+  scanRight: core.curry(function(f, s, as) {
+    var r = [s];
+
+    foldRight(function(b, a) {
+      return core.tap(r.push.bind(r), f(b, a));
+    }, s, as);
+
+    return r;
   }),
 
   /**
@@ -346,8 +395,88 @@ module.exports = {
    * @param {...*} as
    * @returns {*} The result.
    */
-  concat: core.variadic(function(a, as) {
-    return fold(append, a, as);
+  concat: core.variadic(concat),
+
+  /**
+   * Maps and concatenates the list of `as` with the function `f`.
+   *
+   * @static
+   * @curried
+   * @function
+   * @param {function} f
+   * @param {Array} as
+   * @returns {Array} A new array.
+   */
+  concatMap: core.curry(function(f, as) {
+    if (typeof as === 'string') {
+      as = as.split('');
+    }
+    return concat(as.map(f));
+  }),
+
+  /**
+   * Returns the first element in the list of `as`.
+   *
+   * @static
+   * @variadic
+   * @function
+   * @param {...*} as
+   * @returns {*} The result.
+   */
+  head: core.variadic(function(as) {
+    return as[0];
+  }),
+
+  /**
+   * Returns the elements after the first element in the list of `as`.
+   *
+   * @static
+   * @variadic
+   * @function
+   * @param {...*} as
+   * @returns {*} The result.
+   */
+  tail: core.variadic(function(as) {
+    return __slice.call(as, 1);
+  }),
+
+  /**
+   * Returns the elements before the last element in the list of `as`.
+   *
+   * @static
+   * @variadic
+   * @function
+   * @param {...*} as
+   * @returns {*} The result.
+   */
+  init: core.variadic(function(as) {
+    return __slice.call(as, 0, as.length - 1);
+  }),
+
+  /**
+   * Returns the last element in the list of `as`.
+   *
+   * @static
+   * @variadic
+   * @function
+   * @param {...*} as
+   * @returns {*} The result.
+   */
+  last: core.variadic(function(as) {
+    return as[as.length - 1];
+  }),
+
+  /**
+   * Returns the elements of list of `as` in reverse order.
+   *
+   * @static
+   * @variadic
+   * @function
+   * @param {...*} as
+   * @returns {*} The result.
+   */
+  reverse: core.variadic(function(as) {
+    return foldRight(append, [], as);
   }),
 
   /**
@@ -387,7 +516,7 @@ module.exports = {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Tue Sep 09 2014 21:15:16 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Sat Sep 13 2014 15:20:55 GMT+1000 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
