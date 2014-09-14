@@ -38,8 +38,7 @@
 
     
         
-            <div class="description"><p>This module defines the utility functions which can be easily combined and
-composed.</p></div>
+            <div class="description"><p>This module defines operations on lists.</p></div>
         
 
         
@@ -72,7 +71,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line50">line 50</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -108,7 +107,7 @@ composed.</p></div>
         <dl>
             
 <dt>
-    <h4 class="name" id="append"><span class="type-signature">(static) </span>append<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="append"><span class="type-signature">(static) </span>append<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -116,7 +115,7 @@ composed.</p></div>
 
     
     <div class="description">
-        <p>Appends <code>b</code> to <code>a</code>.</p>
+        <p>Appends <code>a</code> to <code>b</code>.</p>
     </div>
     
 
@@ -223,7 +222,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line207">line 207</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line212">line 212</a>
     </li></ul></dd>
     
 
@@ -261,7 +260,10 @@ composed.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -275,7 +277,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="concat"><span class="type-signature">(static) </span>concat<span class="signature">(&hellip;as)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="concat"><span class="type-signature">(static) </span>concat<span class="signature">(&hellip;as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -376,7 +378,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line229">line 229</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line234">line 234</a>
     </li></ul></dd>
     
 
@@ -414,7 +416,10 @@ composed.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -428,7 +433,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="concatMap"><span class="type-signature">(static) </span>concatMap<span class="signature">(f, as)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="concatMap"><span class="type-signature">(static) </span>concatMap<span class="signature">(f, as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -543,7 +548,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line87">line 87</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line92">line 92</a>
     </li></ul></dd>
     
 
@@ -570,7 +575,7 @@ composed.</p></div>
     
             
 <div class="param-desc">
-    <p>A new array.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -582,6 +587,9 @@ composed.</p></div>
     <dd>
         
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -595,7 +603,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="filter"><span class="type-signature">(static) </span>filter<span class="signature">(p, as)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="filter"><span class="type-signature">(static) </span>filter<span class="signature">(p, as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -667,6 +675,9 @@ composed.</p></div>
             
                 
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -707,7 +718,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line117">line 117</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line122">line 122</a>
     </li></ul></dd>
     
 
@@ -734,7 +745,7 @@ composed.</p></div>
     
             
 <div class="param-desc">
-    <p>A new array.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -746,6 +757,9 @@ composed.</p></div>
     <dd>
         
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -855,6 +869,9 @@ composed.</p></div>
             
                 
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -895,7 +912,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line137">line 137</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line142">line 142</a>
     </li></ul></dd>
     
 
@@ -1043,6 +1060,9 @@ composed.</p></div>
             
                 
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -1083,7 +1103,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line151">line 151</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line156">line 156</a>
     </li></ul></dd>
     
 
@@ -1227,7 +1247,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line239">line 239</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line244">line 244</a>
     </li></ul></dd>
     
 
@@ -1279,7 +1299,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="init"><span class="type-signature">(static) </span>init<span class="signature">(as)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="init"><span class="type-signature">(static) </span>init<span class="signature">(as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -1371,7 +1391,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line263">line 263</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line268">line 268</a>
     </li></ul></dd>
     
 
@@ -1409,7 +1429,10 @@ composed.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -1515,7 +1538,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line275">line 275</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line280">line 280</a>
     </li></ul></dd>
     
 
@@ -1567,7 +1590,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="map"><span class="type-signature">(static) </span>map<span class="signature">(f, as)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="map"><span class="type-signature">(static) </span>map<span class="signature">(f, as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -1679,7 +1702,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line99">line 99</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line104">line 104</a>
     </li></ul></dd>
     
 
@@ -1706,7 +1729,7 @@ composed.</p></div>
     
             
 <div class="param-desc">
-    <p>A new array.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -1718,6 +1741,9 @@ composed.</p></div>
     <dd>
         
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -1731,7 +1757,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="prepend"><span class="type-signature">(static) </span>prepend<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="prepend"><span class="type-signature">(static) </span>prepend<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -1846,7 +1872,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line219">line 219</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line224">line 224</a>
     </li></ul></dd>
     
 
@@ -1884,7 +1910,10 @@ composed.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -2010,7 +2039,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line68">line 68</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line73">line 73</a>
     </li></ul></dd>
     
 
@@ -2062,7 +2091,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="reverse"><span class="type-signature">(static) </span>reverse<span class="signature">(as)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="reverse"><span class="type-signature">(static) </span>reverse<span class="signature">(as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -2154,7 +2183,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line287">line 287</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line292">line 292</a>
     </li></ul></dd>
     
 
@@ -2192,7 +2221,10 @@ composed.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -2302,6 +2334,9 @@ composed.</p></div>
             
                 
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -2342,7 +2377,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line165">line 165</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -2490,6 +2525,9 @@ composed.</p></div>
             
                 
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -2530,7 +2568,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line187">line 187</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line192">line 192</a>
     </li></ul></dd>
     
 
@@ -2582,7 +2620,7 @@ composed.</p></div>
         
             
 <dt>
-    <h4 class="name" id="tail"><span class="type-signature">(static) </span>tail<span class="signature">(as)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="tail"><span class="type-signature">(static) </span>tail<span class="signature">(as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -2674,7 +2712,7 @@ composed.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="list.js.html">list.js</a>, <a href="list.js.html#line251">line 251</a>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line256">line 256</a>
     </li></ul></dd>
     
 
@@ -2712,7 +2750,379 @@ composed.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="zip"><span class="type-signature">(static) </span>zip<span class="signature">(as, bs)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Zips the corresponding elements in the list of <code>as</code> and the list of <code>bs</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line306">line 306</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="zipWith"><span class="type-signature">(static) </span>zipWith<span class="signature">(f, as, bs)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Zips the corresponding elements in the list of <code>as</code> and <code>bs</code> with the function <code>f</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>f</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="list.js.html">list.js</a>, <a href="list.js.html#line321">line 321</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -2745,7 +3155,7 @@ composed.</p></div>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Sat Sep 13 2014 18:45:16 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Mon Sep 15 2014 08:23:39 GMT+1000 (EST)
 </footer>
 
 <script> prettyPrint(); </script>
