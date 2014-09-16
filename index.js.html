@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Tutorial: timer</title>
+    <title>JSDoc: Source: list/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,43 +17,36 @@
 
 <div id="main">
 
-    <h1 class="page-title">Tutorial: timer</h1>
+    <h1 class="page-title">Source: list/index.js</h1>
 
-    <section>
-
-<header>
     
 
-    <h2>timer</h2>
-</header>
 
-<article>
-    <!DOCTYPE html>
-<html lang="en-au">
-  <head>
-    <meta charset="utf-8">
-    <title>Timer Example</title>
-    <script src="../dist/fkit.js"></script>
-  </head>
-  <body>
-    <script>
-      function timer(next) {
-        setInterval(fkit.compose(next, Math.random), 100);
-      }
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
 
-      var sum = fkit.fold(fkit.add, 0),
-          s   = new fkit.Signal(timer).map(fkit.mul(+1)),
-          t   = new fkit.Signal(timer).map(fkit.mul(-1)),
-          u   = s.zip(t).map(sum);
+var util = require('../util');
 
-      u.subscribe(console.log.bind(console));
-    </script>
-  </body>
-</html>
+/**
+ * This module defines operations on lists.
+ *
+ * @module list
+ * @author Josh Bassett
+ */
+module.exports = util.extend({}, [
+  require('./build'),
+  require('./fold'),
+  require('./map'),
+  require('./zip'),
+]);
+</code></pre>
+        </article>
+    </section>
 
-</article>
 
-</section>
+
 
 </div>
 

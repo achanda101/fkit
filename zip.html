@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: obj</title>
+    <title>JSDoc: Module: list/zip</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: obj</h1>
+    <h1 class="page-title">Module: list/zip</h1>
 
     
 
@@ -27,7 +27,7 @@
 
 <header>
     <h2>
-    obj
+    list/zip
     </h2>
     
 </header>
@@ -38,7 +38,7 @@
 
     
         
-            <div class="description"><p>This module defines operations on objects.</p></div>
+            <div class="description"><p>This module defines zip operations on lists.</p></div>
         
 
         
@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line10">line 10</a>
+        <a href="zip.js.html">list/zip.js</a>, <a href="zip.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -107,7 +107,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="copy"><span class="type-signature">(static) </span>copy<span class="signature">(target, &hellip;objects)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="unzip"><span class="type-signature">(static) </span>unzip<span class="signature">(as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -115,10 +115,7 @@
 
     
     <div class="description">
-        <p>Creates a copy of the <code>target</code> object (using the <em>same</em> prototype). All
-the properties of the <code>target</code> object will be copied to the new object.</p>
-<p>A list of <code>objects</code> may also be specified to override the properties of
-the <code>target</code> object.</p>
+        <p>Unzips a list of pairs into a pair of lists of <code>as</code> and <code>bs</code>.</p>
     </div>
     
 
@@ -140,8 +137,6 @@ the <code>target</code> object.</p>
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -154,64 +149,26 @@ the <code>target</code> object.</p>
 
         <tr>
             
-                <td class="name"><code>target</code></td>
+                <td class="name"><code>as</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>A target object.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>objects</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                    &lt;repeatable><br>
-                
-                </td>
-            
-
-            
-
-            <td class="description last"><p>A list of objects to be copied.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -242,7 +199,7 @@ the <code>target</code> object.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line31">line 31</a>
+        <a href="zip.js.html">list/zip.js</a>, <a href="zip.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -269,7 +226,7 @@ the <code>target</code> object.</p>
     
             
 <div class="param-desc">
-    <p>A new object.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -280,18 +237,16 @@ the <code>target</code> object.</p>
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
 </dl>
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>copy(person, {name: 'bob'})</code></pre>
 
     
 </dd>
@@ -299,7 +254,7 @@ the <code>target</code> object.</p>
         
             
 <dt>
-    <h4 class="name" id="get"><span class="type-signature">(static) </span>get<span class="signature">(property, target)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="zip"><span class="type-signature">(static) </span>zip<span class="signature">(as, bs)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -307,7 +262,7 @@ the <code>target</code> object.</p>
 
     
     <div class="description">
-        <p>Gets a property of the target object.</p>
+        <p>Zips the lists of <code>as</code> and <code>bs</code> into a list of pairs.</p>
     </div>
     
 
@@ -341,13 +296,16 @@ the <code>target</code> object.</p>
 
         <tr>
             
-                <td class="name"><code>property</code></td>
+                <td class="name"><code>as</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -357,20 +315,23 @@ the <code>target</code> object.</p>
 
             
 
-            <td class="description last"><p>A string representing the property name.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>target</code></td>
+                <td class="name"><code>bs</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -380,7 +341,7 @@ the <code>target</code> object.</p>
 
             
 
-            <td class="description last"><p>A target object.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -411,7 +372,7 @@ the <code>target</code> object.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line44">line 44</a>
+        <a href="zip.js.html">list/zip.js</a>, <a href="zip.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -438,7 +399,7 @@ the <code>target</code> object.</p>
     
             
 <div class="param-desc">
-    <p>A property value.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -449,18 +410,16 @@ the <code>target</code> object.</p>
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
 </dl>
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>get('name', person) == 'bob'</code></pre>
 
     
 </dd>
@@ -468,7 +427,7 @@ the <code>target</code> object.</p>
         
             
 <dt>
-    <h4 class="name" id="set"><span class="type-signature">(static) </span>set<span class="signature">(property, value, target)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="zipWith"><span class="type-signature">(static) </span>zipWith<span class="signature">(f, as, bs)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -476,8 +435,7 @@ the <code>target</code> object.</p>
 
     
     <div class="description">
-        <p>Creates a copy of the <code>target</code> object with the <code>property</code> set to the
-<code>value</code>.</p>
+        <p>Zips the lists of <code>as</code> and <code>bs</code> with the function <code>f</code>.</p>
     </div>
     
 
@@ -511,13 +469,13 @@ the <code>target</code> object.</p>
 
         <tr>
             
-                <td class="name"><code>property</code></td>
+                <td class="name"><code>f</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -527,20 +485,23 @@ the <code>target</code> object.</p>
 
             
 
-            <td class="description last"><p>A string representing the property name.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>as</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -550,20 +511,23 @@ the <code>target</code> object.</p>
 
             
 
-            <td class="description last"><p>A property value.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>target</code></td>
+                <td class="name"><code>bs</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
@@ -573,7 +537,7 @@ the <code>target</code> object.</p>
 
             
 
-            <td class="description last"><p>A target object.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -604,7 +568,7 @@ the <code>target</code> object.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line59">line 59</a>
+        <a href="zip.js.html">list/zip.js</a>, <a href="zip.js.html#line32">line 32</a>
     </li></ul></dd>
     
 
@@ -631,7 +595,7 @@ the <code>target</code> object.</p>
     
             
 <div class="param-desc">
-    <p>A new object.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -642,18 +606,16 @@ the <code>target</code> object.</p>
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
 </dl>
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>set('name', 'bob', person)</code></pre>
 
     
 </dd>

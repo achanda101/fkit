@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: obj.js</title>
+    <title>JSDoc: Source: string.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: obj.js</h1>
+    <h1 class="page-title">Source: string.js</h1>
 
     
 
@@ -27,67 +27,28 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-var fn   = require('./fn'),
-    util = require('./util');
-
-function copy(target, objects) {
-  return util.extend(new target.constructor(), [target].concat(objects));
-}
-
 /**
- * This module defines operations on objects.
+ * This module defines string functions.
  *
  * @module
  * @author Josh Bassett
  */
 module.exports = {
   /**
-   * Creates a copy of the `target` object (using the *same* prototype). All
-   * the properties of the `target` object will be copied to the new object.
+   * Returns the string converted to uppercase.
    *
-   * A list of `objects` may also be specified to override the properties of
-   * the `target` object.
-   *
-   * @static
-   * @function
-   * @param {Object} target A target object.
-   * @param {...Object} objects A list of objects to be copied.
-   * @returns {Object} A new object.
-   * @example copy(person, {name: 'bob'})
+   * @param {String} a
+   * @returns {String} The result.
    */
-  copy: fn.variadic(copy),
+  toUpper: function(a) { return a.toUpperCase(); },
 
   /**
-   * Gets a property of the target object.
+   * Returns the string converted to lowercase.
    *
-   * @static
-   * @curried
-   * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} target A target object.
-   * @returns {*} A property value.
-   * @example get('name', person) == 'bob'
+   * @param {String} a
+   * @returns {String} The result.
    */
-  get: fn.curry(function(property, target) { return target[property]; }),
-
-  /**
-   * Creates a copy of the `target` object with the `property` set to the
-   * `value`.
-   *
-   * @static
-   * @curried
-   * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} value A property value.
-   * @param {Object} target A target object.
-   * @returns {Object} A new object.
-   * @example set('name', 'bob', person)
-   */
-  set: fn.curry(function(property, value, target) {
-    var object = {};
-    object[property] = value;
-    return copy(target, [object]);
-  })
+  toLower: function(a) { return a.toLowerCase(); },
 };
 </code></pre>
         </article>

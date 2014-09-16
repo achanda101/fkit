@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: obj</title>
+    <title>JSDoc: Module: list/map</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: obj</h1>
+    <h1 class="page-title">Module: list/map</h1>
 
     
 
@@ -27,7 +27,7 @@
 
 <header>
     <h2>
-    obj
+    list/map
     </h2>
     
 </header>
@@ -38,7 +38,7 @@
 
     
         
-            <div class="description"><p>This module defines operations on objects.</p></div>
+            <div class="description"><p>This module defines map operations on lists.</p></div>
         
 
         
@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line10">line 10</a>
+        <a href="map.js.html">list/map.js</a>, <a href="map.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -107,7 +107,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="copy"><span class="type-signature">(static) </span>copy<span class="signature">(target, &hellip;objects)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="filter"><span class="type-signature">(static) </span>filter<span class="signature">(p, as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -115,10 +115,7 @@
 
     
     <div class="description">
-        <p>Creates a copy of the <code>target</code> object (using the <em>same</em> prototype). All
-the properties of the <code>target</code> object will be copied to the new object.</p>
-<p>A list of <code>objects</code> may also be specified to override the properties of
-the <code>target</code> object.</p>
+        <p>Filters the list of <code>as</code> with the predicate function <code>p</code>.</p>
     </div>
     
 
@@ -140,8 +137,6 @@ the <code>target</code> object.</p>
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -154,64 +149,49 @@ the <code>target</code> object.</p>
 
         <tr>
             
-                <td class="name"><code>target</code></td>
+                <td class="name"><code>p</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">function</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>A target object.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>objects</code></td>
+                <td class="name"><code>as</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                    &lt;repeatable><br>
-                
-                </td>
-            
 
             
 
-            <td class="description last"><p>A list of objects to be copied.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -242,7 +222,7 @@ the <code>target</code> object.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line31">line 31</a>
+        <a href="map.js.html">list/map.js</a>, <a href="map.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -269,7 +249,7 @@ the <code>target</code> object.</p>
     
             
 <div class="param-desc">
-    <p>A new object.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -280,7 +260,10 @@ the <code>target</code> object.</p>
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -289,17 +272,12 @@ the <code>target</code> object.</p>
         
 
     
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>copy(person, {name: 'bob'})</code></pre>
-
-    
 </dd>
 
         
             
 <dt>
-    <h4 class="name" id="get"><span class="type-signature">(static) </span>get<span class="signature">(property, target)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="intersperse"><span class="type-signature">(static) </span>intersperse<span class="signature">(s, as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -307,7 +285,7 @@ the <code>target</code> object.</p>
 
     
     <div class="description">
-        <p>Gets a property of the target object.</p>
+        <p>Intersperses the elements of list of <code>as</code> with a separator <code>s</code>.</p>
     </div>
     
 
@@ -341,126 +319,127 @@ the <code>target</code> object.</p>
 
         <tr>
             
-                <td class="name"><code>property</code></td>
+                <td class="name"><code>s</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>A string representing the property name.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>target</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>A target object.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line44">line 44</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>A property value.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
 <span class="param-type">*</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A separator.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="map.js.html">list/map.js</a>, <a href="map.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
     </dd>
 </dl>
 
         
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>get('name', person) == 'bob'</code></pre>
 
     
 </dd>
@@ -468,7 +447,7 @@ the <code>target</code> object.</p>
         
             
 <dt>
-    <h4 class="name" id="set"><span class="type-signature">(static) </span>set<span class="signature">(property, value, target)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="map"><span class="type-signature">(static) </span>map<span class="signature">(f, as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
 
     
 </dt>
@@ -476,8 +455,7 @@ the <code>target</code> object.</p>
 
     
     <div class="description">
-        <p>Creates a copy of the <code>target</code> object with the <code>property</code> set to the
-<code>value</code>.</p>
+        <p>Maps the list of <code>as</code> with the function <code>f</code>.</p>
     </div>
     
 
@@ -511,13 +489,13 @@ the <code>target</code> object.</p>
 
         <tr>
             
-                <td class="name"><code>property</code></td>
+                <td class="name"><code>f</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">function</span>
 
 
             
@@ -527,20 +505,20 @@ the <code>target</code> object.</p>
 
             
 
-            <td class="description last"><p>A string representing the property name.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>value</code></td>
+                <td class="name"><code>as</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
 
 
             
@@ -550,30 +528,7 @@ the <code>target</code> object.</p>
 
             
 
-            <td class="description last"><p>A property value.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>target</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>A target object.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -604,7 +559,7 @@ the <code>target</code> object.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="obj.js.html">obj.js</a>, <a href="obj.js.html#line59">line 59</a>
+        <a href="map.js.html">list/map.js</a>, <a href="map.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -631,7 +586,7 @@ the <code>target</code> object.</p>
     
             
 <div class="param-desc">
-    <p>A new object.</p>
+    <p>The result.</p>
 </div>
 
 
@@ -642,7 +597,10 @@ the <code>target</code> object.</p>
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
 
 
     </dd>
@@ -651,9 +609,151 @@ the <code>target</code> object.</p>
         
 
     
-        <h5>Example</h5>
+</dd>
+
         
-    <pre class="prettyprint"><code>set('name', 'bob', person)</code></pre>
+            
+<dt>
+    <h4 class="name" id="reverse"><span class="type-signature">(static) </span>reverse<span class="signature">(as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Returns the elements of list of <code>as</code> in reverse order.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="map.js.html">list/map.js</a>, <a href="map.js.html#line60">line 60</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+        
 
     
 </dd>

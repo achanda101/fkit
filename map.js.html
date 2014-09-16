@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: obj.js</title>
+    <title>JSDoc: Source: list/map.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: obj.js</h1>
+    <h1 class="page-title">Source: list/map.js</h1>
 
     
 
@@ -27,67 +27,96 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-var fn   = require('./fn'),
-    util = require('./util');
-
-function copy(target, objects) {
-  return util.extend(new target.constructor(), [target].concat(objects));
-}
+var base = require('./base'),
+    fn   = require('../fn'),
+    fold = require('./fold');
 
 /**
- * This module defines operations on objects.
+ * This module defines map operations on lists.
  *
  * @module
  * @author Josh Bassett
  */
 module.exports = {
   /**
-   * Creates a copy of the `target` object (using the *same* prototype). All
-   * the properties of the `target` object will be copied to the new object.
-   *
-   * A list of `objects` may also be specified to override the properties of
-   * the `target` object.
-   *
-   * @static
-   * @function
-   * @param {Object} target A target object.
-   * @param {...Object} objects A list of objects to be copied.
-   * @returns {Object} A new object.
-   * @example copy(person, {name: 'bob'})
-   */
-  copy: fn.variadic(copy),
-
-  /**
-   * Gets a property of the target object.
+   * Maps the list of `as` with the function `f`.
    *
    * @static
    * @curried
    * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} target A target object.
-   * @returns {*} A property value.
-   * @example get('name', person) == 'bob'
+   * @param {function} f
+   * @param {Array} as
+   * @returns {Array|String} The result.
    */
-  get: fn.curry(function(property, target) { return target[property]; }),
+  map: fn.curry(function(f, as) {
+    if (typeof as === 'string') {
+      return fold.concatMap(f, as);
+    } else {
+      return as.map(f);
+    }
+  }),
 
   /**
-   * Creates a copy of the `target` object with the `property` set to the
-   * `value`.
+   * Filters the list of `as` with the predicate function `p`.
    *
    * @static
    * @curried
    * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} value A property value.
-   * @param {Object} target A target object.
-   * @returns {Object} A new object.
-   * @example set('name', 'bob', person)
+   * @param {function} p
+   * @param {Array|String} as
+   * @returns {Array|String} The result.
    */
-  set: fn.curry(function(property, value, target) {
-    var object = {};
-    object[property] = value;
-    return copy(target, [object]);
-  })
+  filter: fn.curry(function(p, as) {
+    if (typeof as === 'string') {
+      return fold.concatMap(function(a) {
+        return p(a) ? a : '';
+      }, as);
+    } else {
+      return as.filter(p);
+    }
+  }),
+
+  /**
+   * Returns the elements of list of `as` in reverse order.
+   *
+   * @static
+   * @function
+   * @param {Array|String} as
+   * @returns {Array|String} The result.
+   */
+  reverse: function(as) {
+    return base
+      .toArray(as)
+      .reduce(fn.flip(base.prepend), base.mempty(as));
+  },
+
+  /**
+   * Intersperses the elements of list of `as` with a separator `s`.
+   *
+   * @static
+   * @function
+   * @param {*} s A separator.
+   * @param {Array|String} as
+   * @returns {Array|String} The result.
+   */
+  intersperse: fn.curry(function(s, as) {
+    return fold.concat(
+      base.head(as),
+      prependToAll(base.tail(as))
+    );
+
+    function prependToAll(as) {
+      if (base.empty(as)) {
+        return base.mempty(as);
+      } else {
+        return fold.concat(
+          s,
+          base.head(as),
+          prependToAll(base.tail(as))
+        );
+      }
+    }
+  }),
 };
 </code></pre>
         </article>

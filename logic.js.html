@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: obj.js</title>
+    <title>JSDoc: Source: logic.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: obj.js</h1>
+    <h1 class="page-title">Source: logic.js</h1>
 
     
 
@@ -27,67 +27,63 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-var fn   = require('./fn'),
-    util = require('./util');
-
-function copy(target, objects) {
-  return util.extend(new target.constructor(), [target].concat(objects));
-}
+var fn = require('./fn');
 
 /**
- * This module defines operations on objects.
+ * This module defines logic functions.
  *
  * @module
  * @author Josh Bassett
  */
 module.exports = {
   /**
-   * Creates a copy of the `target` object (using the *same* prototype). All
-   * the properties of the `target` object will be copied to the new object.
-   *
-   * A list of `objects` may also be specified to override the properties of
-   * the `target` object.
-   *
-   * @static
-   * @function
-   * @param {Object} target A target object.
-   * @param {...Object} objects A list of objects to be copied.
-   * @returns {Object} A new object.
-   * @example copy(person, {name: 'bob'})
-   */
-  copy: fn.variadic(copy),
-
-  /**
-   * Gets a property of the target object.
+   * The logical AND operator.
    *
    * @static
    * @curried
    * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} target A target object.
-   * @returns {*} A property value.
-   * @example get('name', person) == 'bob'
+   * @param {boolean} a
+   * @param {boolean} b
+   * @returns {boolean} The result.
    */
-  get: fn.curry(function(property, target) { return target[property]; }),
+  and: fn.curry(function(a, b) { return b &amp;&amp; a; }),
 
   /**
-   * Creates a copy of the `target` object with the `property` set to the
-   * `value`.
+   * The logical OR operator.
    *
    * @static
    * @curried
    * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} value A property value.
-   * @param {Object} target A target object.
-   * @returns {Object} A new object.
-   * @example set('name', 'bob', person)
+   * @param {boolean} a
+   * @param {boolean} b
+   * @returns {boolean} The result.
    */
-  set: fn.curry(function(property, value, target) {
-    var object = {};
-    object[property] = value;
-    return copy(target, [object]);
-  })
+  or: fn.curry(function(a, b) { return b || a; }),
+
+  /**
+   * The logical NOT operator.
+   *
+   * @param {boolean} a
+   * @returns {boolean} The result.
+   */
+  not: function(a) { return !a; },
+
+  /**
+   * Branches execution based on the predicate function `p`. If `p(a)` is true
+   * then `f` is applied to `a`, otherwise `g` is applied to `a`.
+   *
+   * @static
+   * @curried
+   * @function
+   * @param {function} p
+   * @param {function} f
+   * @param {function} g
+   * @param {*} a
+   * @returns {*} The result.
+   */
+  branch: fn.curry(function(p, f, g, a) {
+    return p(a) ? f(a) : g(a);
+  }),
 };
 </code></pre>
         </article>

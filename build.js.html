@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: obj.js</title>
+    <title>JSDoc: Source: list/build.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: obj.js</h1>
+    <h1 class="page-title">Source: list/build.js</h1>
 
     
 
@@ -27,67 +27,69 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-var fn   = require('./fn'),
-    util = require('./util');
+var base = require('./base'),
+    fn   = require('../fn'),
+    fold = require('./fold');
 
-function copy(target, objects) {
-  return util.extend(new target.constructor(), [target].concat(objects));
-}
+function array(n) { return Array.apply(null, Array(n)); }
+
+function pair(a, b) { return [a, b]; }
 
 /**
- * This module defines operations on objects.
+ * This module defines build operations on lists.
  *
  * @module
  * @author Josh Bassett
  */
 module.exports = {
   /**
-   * Creates a copy of the `target` object (using the *same* prototype). All
-   * the properties of the `target` object will be copied to the new object.
-   *
-   * A list of `objects` may also be specified to override the properties of
-   * the `target` object.
+   * Returns a new array of length `n`.
    *
    * @static
    * @function
-   * @param {Object} target A target object.
-   * @param {...Object} objects A list of objects to be copied.
-   * @returns {Object} A new object.
-   * @example copy(person, {name: 'bob'})
+   * @param {number} n
+   * @returns {Array} A new array.
    */
-  copy: fn.variadic(copy),
+  array: array,
 
   /**
-   * Gets a property of the target object.
+   * Returns a pair with the values `a` and `b`.
+   *
+   * @static
+   * @function
+   * @param {*} a A value.
+   * @param {*} b A value.
+   * @returns {Array} A pair.
+   */
+  pair: fn.curry(pair),
+
+  /**
+   * Creates a new array of numbers from `a` of length `n`.
    *
    * @static
    * @curried
    * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} target A target object.
-   * @returns {*} A property value.
-   * @example get('name', person) == 'bob'
+   * @param {number} a
+   * @param {number} n
+   * @returns {Array} A new array.
    */
-  get: fn.curry(function(property, target) { return target[property]; }),
+  range: fn.curry(function(a, n) {
+    return array(n).map(function(_, i) { return a + i; });
+  }),
 
   /**
-   * Creates a copy of the `target` object with the `property` set to the
-   * `value`.
+   * Creates a new list of length `n` with `a` the value of every element.
    *
    * @static
    * @curried
    * @function
-   * @param {string} property A string representing the property name.
-   * @param {Object} value A property value.
-   * @param {Object} target A target object.
-   * @returns {Object} A new object.
-   * @example set('name', 'bob', person)
+   * @param {number} n
+   * @param {number} a
+   * @returns {Array} A new array.
    */
-  set: fn.curry(function(property, value, target) {
-    var object = {};
-    object[property] = value;
-    return copy(target, [object]);
-  })
+  replicate: fn.curry(function(n, a) {
+    return fold.concat(array(n).map(function() { return base.pure(a); }));
+  }),
 };
 </code></pre>
         </article>
