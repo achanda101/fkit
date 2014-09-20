@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: fn/logic</title>
+    <title>JSDoc: Module: list/search</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: fn/logic</h1>
+    <h1 class="page-title">Module: list/search</h1>
 
     
 
@@ -27,7 +27,7 @@
 
 <header>
     <h2>
-    fn/logic
+    list/search
     </h2>
     
 </header>
@@ -38,7 +38,7 @@
 
     
         
-            <div class="description"><p>This module defines many utility functions.</p></div>
+            <div class="description"><p>This module defines search operations on lists.</p></div>
         
 
         
@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">fn/logic.js</a>, <a href="logic.js.html#line5">line 5</a>
+        <a href="search.js.html">list/search.js</a>, <a href="search.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -107,7 +107,7 @@
         <dl>
             
 <dt>
-    <h4 class="name" id="and"><span class="type-signature">(static) </span>and<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="all"><span class="type-signature">(static) </span>all<span class="signature">(p, as)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
 
     
 </dt>
@@ -115,172 +115,8 @@
 
     
     <div class="description">
-        <p>The logical AND operator.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">fn/logic.js</a>, <a href="logic.js.html#line22">line 22</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The result.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-        
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="branch"><span class="type-signature">(static) </span>branch<span class="signature">(p, f, g, a)</span><span class="type-signature"> &rarr; {*}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Branches execution based on the predicate function <code>p</code>. If <code>p(a)</code> is true
-then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is applied to <code>a</code>.</p>
+        <p>Determines if all elements in the list of <code>as</code> satisfy the predicate
+function <code>p</code>.</p>
     </div>
     
 
@@ -337,7 +173,159 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
         <tr>
             
-                <td class="name"><code>f</code></td>
+                <td class="name"><code>as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search.js.html">list/search.js</a>, <a href="search.js.html#line55">line 55</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>p(a) { return a > 1; }
+all(p, [1, 2, 3]); // false
+all(p, [2, 3, 4]); // true</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="any"><span class="type-signature">(static) </span>any<span class="signature">(p, as)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Determines if any elements in the list of <code>as</code> satisfy the predicate
+function <code>p</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>p</code></td>
             
 
             <td class="type">
@@ -360,13 +348,341 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
         <tr>
             
-                <td class="name"><code>g</code></td>
+                <td class="name"><code>as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search.js.html">list/search.js</a>, <a href="search.js.html#line74">line 74</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>p(a) { return a > 1; }
+any(p, [1, 2, 3]); // true
+any(p, [2, 3, 4]); // true</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="filter"><span class="type-signature">(static) </span>filter<span class="signature">(p, as)</span><span class="type-signature"> &rarr; {Array|String}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Filters the list of <code>as</code> with the predicate function <code>p</code>.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>p</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="search.js.html">list/search.js</a>, <a href="search.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>The result.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+|
+
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>p(a) { return a > 1; }
+filter(p, [1, 2, 3]); // [2, 3]</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="whereAll"><span class="type-signature">(static) </span>whereAll<span class="signature">(ps, a)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Applies the list of predicate functions <code>ps</code> to the value <code>a</code> and returns
+their conjunction.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
 
 
             
@@ -430,7 +746,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">fn/logic.js</a>, <a href="logic.js.html#line65">line 65</a>
+        <a href="search.js.html">list/search.js</a>, <a href="search.js.html#line95">line 95</a>
     </li></ul></dd>
     
 
@@ -468,71 +784,104 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
     </dt>
     <dd>
         
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>p(a) { return a > 1; }
+q(a) { return a > 2; }
+whereAll([p, q], 1); // false
+whereAll([p, q], 2); // false
+whereAll([p, q], 3); // true</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="whereAny"><span class="type-signature">(static) </span>whereAny<span class="signature">(ps, a)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Applies the list of predicate functions <code>ps</code> to the value <code>a</code> and returns
+their disjunction.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>a</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">*</span>
 
 
-    </dd>
-</dl>
-
-        
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="negate"><span class="type-signature">(static) </span>negate<span class="signature">(a)</span><span class="type-signature"> &rarr; {number}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>The unary negation operator.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
             
             </td>
 
@@ -571,148 +920,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">fn/logic.js</a>, <a href="logic.js.html#line50">line 50</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The result.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">number</span>
-
-
-    </dd>
-</dl>
-
-        
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="not"><span class="type-signature">(static) </span>not<span class="signature">(a)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>The logical NOT operator.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">fn/logic.js</a>, <a href="logic.js.html#line42">line 42</a>
+        <a href="search.js.html">list/search.js</a>, <a href="search.js.html#line117">line 117</a>
     </li></ul></dd>
     
 
@@ -759,168 +967,13 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
         
 
     
-</dd>
-
+        <h5>Example</h5>
         
-            
-<dt>
-    <h4 class="name" id="or"><span class="type-signature">(static) </span>or<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>The logical OR operator.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>a</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>b</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">fn/logic.js</a>, <a href="logic.js.html#line34">line 34</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    <p>The result.</p>
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-        
+    <pre class="prettyprint"><code>p(a) { return a > 1; }
+q(a) { return a > 2; }
+whereAny([p, q], 1); // false
+whereAny([p, q], 2); // true
+whereAny([p, q], 3); // true</code></pre>
 
     
 </dd>
@@ -941,13 +994,13 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fkit.html">fkit</a></li><li><a href="module-fn.html">fn</a></li><li><a href="logic.html">fn/logic</a></li><li><a href="math.html">fn/math</a></li><li><a href="string.html">fn/string</a></li><li><a href="module-list.html">list</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-obj.html">obj</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="base.html">list/base</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="search.html">list/search</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-logic.html">logic</a></li><li><a href="module-math.html">math</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-string.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Tue Sep 16 2014 15:42:29 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Sat Sep 20 2014 12:52:00 GMT+1000 (AEST)
 </footer>
 
 <script> prettyPrint(); </script>

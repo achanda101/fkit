@@ -29,31 +29,15 @@
 
 var fn = require('../fn');
 
-function length(as) { return as.length; }
-
-function append(a, b) {
-  if (typeof b === 'string') {
-    return b + a;
-  } else {
-    return b.concat(a);
-  }
-}
-
-function prepend(a, b) {
-  if (typeof b === 'string') {
-    return a + b;
-  } else {
-    return [a].concat(b);
-  }
-}
+var self;
 
 /**
  * This module defines basic operations on lists.
  *
- * @module
+ * @module list/base
  * @author Josh Bassett
  */
-module.exports = {
+self = module.exports = {
   // Returns an empty monoid.
   mempty: function(as) {
     return (as &amp;&amp; typeof as[0] === 'string') ? '' : [];
@@ -64,6 +48,7 @@ module.exports = {
     return (x &amp;&amp; typeof x[0] === 'string') ? x : [x];
   },
 
+  // Converts the list of `as` to an array.
   toArray: function(as) {
     if (typeof as === 'string') {
       return as.split('');
@@ -73,58 +58,88 @@ module.exports = {
   },
 
   /**
-   * Appends `a` to `b`.
+   * Appends the value `a` to list of `bs`.
    *
    * @static
    * @curried
    * @function
-   * @param {Array|String} a
-   * @param {*} b
+   * @param {*} a - A value.
+   * @param {Array|String} bs - A list.
    * @returns {Array|String} The result.
    */
-  append: fn.curry(append),
+  append: fn.curry(function(a, bs) {
+    if (typeof bs === 'string') {
+      return bs + a;
+    } else {
+      return bs.concat(a);
+    }
+  }),
 
   /**
-   * Prepends `a` to `b`.
+   * Prepends the value `a` to list of `bs`.
    *
    * @static
    * @curried
    * @function
-   * @param {Array|String} a
-   * @param {*} b
+   * @param {*} a - A value.
+   * @param {Array|String} bs - A list.
    * @returns {Array|String} The result.
    */
-  prepend: fn.curry(prepend),
+  prepend: fn.curry(function(a, bs) {
+    if (typeof bs === 'string') {
+      return a + bs;
+    } else {
+      return [a].concat(bs);
+    }
+  }),
+
+  /**
+   * Surrounds the list of `cs` with the values `a` and `b`.
+   *
+   * @static
+   * @curried
+   * @function
+   * @param {*} a - A value.
+   * @param {*} b - A value.
+   * @param {Array|String} cs - A list.
+   * @returns {Array|String} The result.
+   * @example
+   *   surround('(', ')', 'foo'); // (foo)
+   *   surround(0, 4, [1, 2, 3]); // [0, 1, 2, 3, 4]
+   */
+  surround: fn.curry(function(a, b, cs) {
+    return self.append(b, self.prepend(a, cs));
+  }),
 
   /**
    * Returns the first element in the list of `as`.
    *
-   * @param {Array|String} as
-   * @returns {*} The result.
+   * @param {Array|String} as - A list.
+   * @returns {*} The head element.
    */
   head: function(as) { return as[0]; },
 
   /**
    * Returns the elements after the first element in the list of `as`.
    *
-   * @param {Array|String} as
-   * @returns {Array|String} The result.
+   * @param {Array|String} as - A list.
+   * @returns {Array|String} The tail elements.
    */
   tail: function(as) { return as.slice(1); },
 
   /**
    * Returns the elements before the last element in the list of `as`.
    *
-   * @param {Array|String} as
-   * @returns {Array|String} The result.
+   * @param {Array|String} as - A list.
+   * @returns {Array|String} The initial elements.
    */
   init: function(as) { return as.slice(0, as.length - 1); },
 
   /**
    * Returns the last element in the list of `as`.
    *
-   * @param {Array|String} as
-   * @returns {*} The result.
+   * @param {Array|String} as - A list.
+   * @returns {*} The last element.
    */
   last: function(as) { return as[as.length - 1]; },
 
@@ -133,18 +148,18 @@ module.exports = {
    *
    * @static
    * @function
-   * @param {Array|String} as
-   * @returns {number} The length.
+   * @param {Array|String} as - A list.
+   * @returns {number} The length of `as`.
    */
-  length: length,
+  length: function(as) { return as.length; },
 
   /**
    * Test whether the list of `as` is empty.
    *
-   * @param {Array|String} as
+   * @param {Array|String} as - A list.
    * @returns {boolean} The result.
    */
-  empty: function(as) { return length(as) === 0; },
+  empty: function(as) { return as.length === 0; },
 };
 </code></pre>
         </article>
@@ -156,13 +171,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="module-list.html">list</a></li><li><a href="base.html">list/base</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-logic.html">logic</a></li><li><a href="module-math.html">math</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-string.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="base.html">list/base</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="search.html">list/search</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-logic.html">logic</a></li><li><a href="module-math.html">math</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-string.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Tue Sep 16 2014 16:38:08 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Sat Sep 20 2014 12:51:59 GMT+1000 (AEST)
 </footer>
 
 <script> prettyPrint(); </script>

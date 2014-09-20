@@ -32,7 +32,7 @@ var fn = require('./fn');
 /**
  * This module defines math functions.
  *
- * @module
+ * @module math
  * @author Josh Bassett
  */
 module.exports = {
@@ -42,9 +42,9 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @param {number} b A value.
+   * @returns {number} The value `b + a`.
    */
   add: fn.curry(function(a, b) { return b + a; }),
 
@@ -54,9 +54,9 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @param {number} b A value.
+   * @returns {number} The value `b - a`.
    */
   sub: fn.curry(function(a, b) { return b - a; }),
 
@@ -66,9 +66,9 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @param {number} b A value.
+   * @returns {number} The value `b * a`.
    */
   mul: fn.curry(function(a, b) { return b * a; }),
 
@@ -78,9 +78,9 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @param {number} b A value.
+   * @returns {number} The value `b / a`.
    */
   div: fn.curry(function(a, b) { return b / a; }),
 
@@ -90,9 +90,9 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @param {number} b A value.
+   * @returns {number} The value `b % a`.
    */
   mod: fn.curry(function(a, b) { return b % a; }),
 
@@ -102,9 +102,9 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @param {number} b A value.
+   * @returns {number} The minimum value of `a` and `b`.
    */
   min: fn.curry(function(a, b) { return Math.min(b, a); }),
 
@@ -114,17 +114,17 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @param {number} b A value.
+   * @returns {number} The maximum value of `a` and `b`.
    */
   max: fn.curry(function(a, b) { return Math.max(b, a); }),
 
   /**
    * The unary negation operator.
    *
-   * @param {number} a
-   * @returns {number} The result.
+   * @param {number} a A value.
+   * @returns {number} The value `-a`.
    */
   negate: function(a) { return -a; },
 
@@ -134,8 +134,8 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {*} a
-   * @param {*} b
+   * @param {*} a A value.
+   * @param {*} b A value.
    * @returns {boolean} The result.
    */
   eql: fn.curry(function(a, b) { return b === a; }),
@@ -146,8 +146,8 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
+   * @param {number} a A value.
+   * @param {number} b A value.
    * @returns {boolean} The result.
    */
   gt: fn.curry(function(a, b) { return b > a; }),
@@ -158,8 +158,8 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
+   * @param {number} a A value.
+   * @param {number} b A value.
    * @returns {boolean} The result.
    */
   gte: fn.curry(function(a, b) { return b >= a; }),
@@ -170,8 +170,8 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
+   * @param {number} a A value.
+   * @param {number} b A value.
    * @returns {boolean} The result.
    */
   lt: fn.curry(function(a, b) { return b &lt; a; }),
@@ -182,8 +182,8 @@ module.exports = {
    * @static
    * @curried
    * @function
-   * @param {number} a
-   * @param {number} b
+   * @param {number} a A value.
+   * @param {number} b A value.
    * @returns {boolean} The result.
    */
   lte: fn.curry(function(a, b) { return b &lt;= a; }),
@@ -191,7 +191,7 @@ module.exports = {
   /**
    * Increments the number.
    *
-   * @param {number} a
+   * @param {number} a A value.
    * @returns {number} The result.
    */
   inc: function(a) { return a + 1; },
@@ -199,7 +199,7 @@ module.exports = {
   /**
    * Decrements the number.
    *
-   * @param {number} a
+   * @param {number} a A value.
    * @returns {number} The result.
    */
   dec: function(a) { return a - 1; },
@@ -214,13 +214,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="module-list.html">list</a></li><li><a href="base.html">list/base</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-logic.html">logic</a></li><li><a href="module-math.html">math</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-string.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="base.html">list/base</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="search.html">list/search</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-logic.html">logic</a></li><li><a href="module-math.html">math</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-string.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Tue Sep 16 2014 16:38:08 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Sat Sep 20 2014 12:51:59 GMT+1000 (AEST)
 </footer>
 
 <script> prettyPrint(); </script>

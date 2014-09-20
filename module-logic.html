@@ -165,7 +165,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A value.</p></td>
         </tr>
 
     
@@ -188,7 +188,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A value.</p></td>
         </tr>
 
     
@@ -219,7 +219,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line22">line 22</a>
+        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line23">line 23</a>
     </li></ul></dd>
     
 
@@ -264,6 +264,11 @@
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>and(a, b) === a &amp;&amp; b</code></pre>
 
     
 </dd>
@@ -330,7 +335,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>The predicate function.</p></td>
         </tr>
 
     
@@ -353,7 +358,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A function.</p></td>
         </tr>
 
     
@@ -376,7 +381,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A function.</p></td>
         </tr>
 
     
@@ -399,7 +404,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A value.</p></td>
         </tr>
 
     
@@ -430,7 +435,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line57">line 57</a>
+        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line64">line 64</a>
     </li></ul></dd>
     
 
@@ -475,6 +480,15 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 </dl>
 
         
+
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>function big(a) { return a + ' is a big number'; }
+function small(a) { return a + ' is a small number'; }
+var f = branch(fkit.gt(10), big, small);
+f(10); // small number
+f(11); // big number</code></pre>
 
     
 </dd>
@@ -540,7 +554,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A value.</p></td>
         </tr>
 
     
@@ -571,7 +585,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line42">line 42</a>
+        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -681,7 +695,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A value.</p></td>
         </tr>
 
     
@@ -704,7 +718,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>A value.</p></td>
         </tr>
 
     
@@ -735,7 +749,7 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line34">line 34</a>
+        <a href="logic.js.html">logic.js</a>, <a href="logic.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -800,13 +814,13 @@ then <code>f</code> is applied to <code>a</code>, otherwise <code>g</code> is ap
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="module-list.html">list</a></li><li><a href="base.html">list/base</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-logic.html">logic</a></li><li><a href="module-math.html">math</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-string.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="module-fn.html">fn</a></li><li><a href="base.html">list/base</a></li><li><a href="build.html">list/build</a></li><li><a href="fold.html">list/fold</a></li><li><a href="map.html">list/map</a></li><li><a href="search.html">list/search</a></li><li><a href="zip.html">list/zip</a></li><li><a href="module-logic.html">logic</a></li><li><a href="module-math.html">math</a></li><li><a href="module-obj.html">obj</a></li><li><a href="module-string.html">string</a></li></ul><h3>Classes</h3><ul><li><a href="Signal.html">Signal</a></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-signal_.html">signal</a></li><li><a href="tutorial-timer.html">timer</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Tue Sep 16 2014 16:38:08 GMT+1000 (EST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha9</a> on Sat Sep 20 2014 12:52:00 GMT+1000 (AEST)
 </footer>
 
 <script> prettyPrint(); </script>
