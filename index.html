@@ -1,13 +1,33 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>JSDoc React</title><link rel="stylesheet" href="style.css"><script src="app.js"></script></head><body><div class="container"><div><h1>FKit <a href="https://travis-ci.org/nullobject/fkit"><img src="https://travis-ci.org/nullobject/fkit.svg?branch=master" alt="Build Status"></a></h1><p>FKit is a <a href="http://en.wikipedia.org/wiki/Functional_programming">functional
 programming</a> library for
-JavaScript. It consists of a small number of functions and classes that are
-squarely focused on everyday utility. This provides developers with functional
-programming &quot;building blocks&quot; that they can use to write better, more
-expressive code.</p>
+JavaScript. It provides a number of functions and classes, which are sharply
+focused on everyday utility, for working with arrays, strings, and objects.
+This empowers developers with the functional programming &quot;building blocks&quot; that
+they can use to write better, more expressive code.</p>
+<p>Features:</p>
+<ul>
+<li>Functions are <a href="http://en.wikipedia.org/wiki/Currying">curried</a> by default, so
+you can <a href="">partially apply</a> them like a pro.</li>
+<li>The ordering of arguments to functions is more &quot;natural&quot;, this means they are
+highly composable.</li>
+<li>Strings are treated as lists, so you can easily apply combinators like <code>map</code>,
+<code>filter</code>, and <code>fold</code>.</li>
+</ul>
 <h2>Documentation</h2><ul>
 <li><a href="http://nullobject.github.io/fkit/api.html">API documentation</a></li>
 </ul>
-<h2>Examples</h2><ul>
+<h2>Examples</h2><pre class="prettyprint source lang-js"><code>// Stash a string.
+F.map(F.surround('{', '}'), 'hello'); // '{h}{e}{l}{l}{o}'
+
+// Add a list of numbers.
+F.fold(F.add, 0, [1, 2, 3]); // 6
+
+// Filter a list of numbers where n > 1 and n &lt; 5.
+F.filter(
+  F.whereAll([F.gt(1), F.lt(5)]),
+  [1, 2, 3, 4, 5]
+); // [2, 3, 4]</code></pre><p>Check out some more examples:</p>
+<ul>
 <li><a href="http://codepen.io/nullobject/pen/dbAkl?editors=001">Functions</a></li>
 <li><a href="http://codepen.io/nullobject/pen/hnDEe?editors=001">Strings</a></li>
 <li><a href="http://codepen.io/nullobject/pen/vbcCr?editors=001">Arrays</a></li>
@@ -15,20 +35,16 @@ expressive code.</p>
 <li><a href="http://codepen.io/nullobject/pen/LdtDK?editors=001">Branching</a></li>
 <li><a href="http://codepen.io/nullobject/pen/zxJlv?editors=001">Signals</a></li>
 </ul>
-<h2>Installing</h2><h3>Browser</h3><p>Download the
+<h2>Download</h2><p>Download the
 <a href="https://raw.githubusercontent.com/nullobject/fkit/master/dist/fkit.js">fkit.js</a>
 minified library.</p>
-<p>Then load it in a script tag:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;fkit.js&quot;>&lt;/script>
-&lt;script>
-  console.log(F.add(1, 2));
-&lt;/script></code></pre><h3>Node</h3><p>Install the npm package:</p>
-<pre class="prettyprint source"><code>> npm install fkit</code></pre><p>Then require it:</p>
+<h3>Node</h3><p>Install the npm package:</p>
+<pre class="prettyprint source lang-bash"><code>> npm install fkit</code></pre><p>Then require it in your code:</p>
 <pre class="prettyprint source lang-js"><code>var F = require('fkit');
 console.log(F.add(1, 2));</code></pre><h3>Bower</h3><p>Install the bower component:</p>
-<pre class="prettyprint source"><code>> bower install fkit</code></pre><h2>Contributing</h2><h3>Build</h3><p>Build FKit:</p>
-<pre class="prettyprint source"><code>> make build</code></pre><h3>Test</h3><p>Run the tests:</p>
-<pre class="prettyprint source"><code>> make test</code></pre><h3>Release</h3><p>Ship a new release x.y.z:</p>
-<pre class="prettyprint source"><code>> make release version=x.y.z</code></pre><h2>License</h2><p>FKit is licensed under the MIT license. See the
+<pre class="prettyprint source lang-bash"><code>> bower install fkit</code></pre><h2>Contribute</h2><h3>Build</h3><p>Build FKit:</p>
+<pre class="prettyprint source lang-bash"><code>> make build</code></pre><h3>Test</h3><p>Run the tests:</p>
+<pre class="prettyprint source lang-bash"><code>> make test</code></pre><h3>Release</h3><p>Ship a new release x.y.z:</p>
+<pre class="prettyprint source lang-bash"><code>> make release version=x.y.z</code></pre><h2>License</h2><p>FKit is licensed under the MIT license. See the
 <a href="https://github.com/nullobject/fkit/blob/master/LICENSE.md">LICENSE</a> file for
 more details.</p></div></div></body></html>
