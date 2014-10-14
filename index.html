@@ -1,41 +1,48 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>FKit</title><link rel="stylesheet" href="style.css"><script src="app.js"></script></head><body><div class="container"><div><h1 align="center"><img alt="FKit" src="https://raw.github.com/nullobject/fkit/master/logo.png" width="107px" /></h1>
 
 <p><a href="https://travis-ci.org/nullobject/fkit"><img src="https://travis-ci.org/nullobject/fkit.svg?branch=master" alt="Build Status"></a></p>
-<p>FKit is a <a href="http://en.wikipedia.org/wiki/Functional_programming">functional
-programming</a> library for
-JavaScript. It provides a number of functions and classes, which are sharply
-focused on everyday utility, for working with strings, arrays, and objects.
-This provides developers with functional programming &quot;building blocks&quot; that
-they can use to write better, more expressive code.</p>
+<p>FKit (pronounced eff-kit) is a <a href="http://en.wikipedia.org/wiki/Functional_programming">functional
+programming</a> toolkit for
+JavaScript. It provides many functions for solving common problems with
+functions, objects, arrays, and strings. It aims to provide reusable building
+blocks while maintaining a laser focus on everyday utility.</p>
 <p>Features:</p>
 <ul>
 <li>Why reinvent the wheel? FKit provides many functions for solving common
 problems with functions, arrays, objects, and strings.</li>
-<li>Most FKit functions are <a href="http://en.wikipedia.org/wiki/Currying">curried</a> by
-default, so you can <a href="http://en.wikipedia.org/wiki/Partial_application">partially
-apply</a> them whenever you
-need to.</li>
+<li>FKit treats both strings and arrays as <em>lists</em>, this means you can apply the
+same list functions to both strings and arrays (e.g. <code>head</code>, <code>tail</code>, <code>map</code>,
+<code>filter</code>, and <code>fold</code>).</li>
+<li>Most FKit functions are already
+<a href="http://en.wikipedia.org/wiki/Currying">curried</a> by default, so you can
+<a href="http://en.wikipedia.org/wiki/Partial_application">partially apply</a> them
+wherever you need to.</li>
 <li>The ordering of arguments to FKit functions is carefully designed to be more
 natural, this makes them highly
 <a href="http://en.wikipedia.org/wiki/Function_composition">composable</a>.</li>
-<li>Strings and arrays are both treated as <em>lists</em>, this means you can apply list
-combinators like <code>map</code>, <code>filter</code>, and <code>fold</code> to both strings and arrays.</li>
-<li>It's very compact, roughly 3.0 KB when minified and gzipped!</li>
+<li>It's very compact, roughly 3 KB when minified and gzipped!</li>
 </ul>
 <h2>Documentation</h2><ul>
 <li><a href="http://nullobject.github.io/fkit/api.html">API documentation</a></li>
+<li>Presentation by Josh Bassett: <a href="https://speakerdeck.com/nullobject/fkit-everyday-functional-programming-in-javascript">Everyday Functional Programming in
+JavaScript</a></li>
+<li>Article by Josh Bassett: <a href="http://joshbassett.info/2014/take-your-code-to-the-next-level-with-fkit/">Take Your Code to the Next Level with
+FKit</a></li>
 </ul>
-<h2>Examples</h2><pre class="prettyprint source lang-js"><code>// Stash a string.
+<h2>Examples</h2><pre class="prettyprint source lang-js"><code>// Sum the numbers in a list.
+F.sum([1, 2, 3]); // 6
+
+// Stash a string.
 F.map(F.surround('{', '}'), 'hello'); // '{h}{e}{l}{l}{o}'
 
-// Add a list of numbers.
-F.fold(F.add, 0, [1, 2, 3]); // 6
+// Intersperse the numbers in a list with another number.
+F.intersperse(4, [1, 2, 3]); // [1, 4, 2, 4, 3]
 
-// Filter a list of numbers where n > 1 and n &lt; 5.
-F.filter(
-  F.whereAll([F.gt(1), F.lt(5)]),
-  [1, 2, 3, 4, 5]
-); // [2, 3, 4]</code></pre><p>Check out some more examples:</p>
+// Filter the numbers in a list where 1 &lt; n &lt; 5.
+[1, 2, 3, 4, 5].filter(F.whereAll([F.gt(1), F.lt(5)])); // [2, 3, 4]
+
+// Calculate the cartesian product of two lists.
+F.cartesian([1, 2], [3, 4]); // [[1, 3], [1, 4], [2, 3], [2, 4]]</code></pre><p>Check out some more examples:</p>
 <ul>
 <li><a href="http://codepen.io/nullobject/pen/dbAkl?editors=001">Functions</a></li>
 <li><a href="http://codepen.io/nullobject/pen/hnDEe?editors=001">Strings</a></li>
@@ -48,11 +55,11 @@ F.filter(
 <a href="https://raw.githubusercontent.com/nullobject/fkit/master/dist/fkit.js">fkit.js</a>
 minified library.</p>
 <h3>Node</h3><p>Install the npm package:</p>
-<pre class="prettyprint source lang-sh"><code>> npm install fkit</code></pre><p>Then require it in your code:</p>
+<pre class="prettyprint source lang-sh"><code>> npm install fkit</code></pre><p>Require it in your code:</p>
 <pre class="prettyprint source lang-js"><code>var F = require('fkit');
 console.log(F.add(1, 2));</code></pre><h3>Bower</h3><p>Install the bower component:</p>
-<pre class="prettyprint source lang-sh"><code>> bower install fkit</code></pre><h2>Contribute</h2><h3>Build</h3><p>Build FKit:</p>
-<pre class="prettyprint source lang-sh"><code>> make build</code></pre><h3>Test</h3><p>Run the tests:</p>
+<pre class="prettyprint source lang-sh"><code>> bower install fkit</code></pre><h2>Contribute</h2><h3>Build</h3><p>Build the library:</p>
+<pre class="prettyprint source lang-sh"><code>> make production</code></pre><h3>Test</h3><p>Run the tests:</p>
 <pre class="prettyprint source lang-sh"><code>> make test</code></pre><h3>Release</h3><p>Ship a new release x.y.z:</p>
 <pre class="prettyprint source lang-sh"><code>> make release version=x.y.z</code></pre><h2>License</h2><p>FKit is licensed under the MIT license. See the
 <a href="https://github.com/nullobject/fkit/blob/master/LICENSE.md">LICENSE</a> file for
