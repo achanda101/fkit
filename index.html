@@ -42,7 +42,10 @@ F.intersperse(4, [1, 2, 3]); // [1, 4, 2, 4, 3]
 [1, 2, 3, 4, 5].filter(F.whereAll([F.gt(1), F.lt(5)])); // [2, 3, 4]
 
 // Calculate the cartesian product of two lists.
-F.cartesian([1, 2], [3, 4]); // [[1, 3], [1, 4], [2, 3], [2, 4]]</code></pre><p>Check out some more examples:</p>
+F.cartesian([1, 2], [3, 4]); // [[1, 3], [1, 4], [2, 3], [2, 4]]
+
+// Calculate the permutations of a list.
+F.permutations('abc'); // ['abc', 'bac', 'cba', 'bca', 'cab', 'acb']</code></pre><p>Check out some more examples:</p>
 <ul>
 <li><a href="http://codepen.io/nullobject/pen/dbAkl?editors=001">Functions</a></li>
 <li><a href="http://codepen.io/nullobject/pen/hnDEe?editors=001">Strings</a></li>
